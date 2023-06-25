@@ -430,4 +430,47 @@ public class Estafeta implements Comparable<Estafeta>, Serializable {
     public void limpaNotificacoes() {
         notificacoes = new ArrayList<>();
     }
+   /**
+    * Transporte no puede utilizar los métodos atualizaClassificacao() y limpaNotificacoes() 
+    de la superclase Estafeta.Para solucionar este problema, podríamos hacer que estos métodos 
+    sean abstractos en la clase base Estafeta, y luego implementarlos en cada subclase. Esto 
+    permitiría a cada subclase tener su propia implementación de estos métodos, lo que podría 
+    ser necesario si la forma en que se actualiza la clasificación o se limpian las notificaciones 
+    varía entre diferentes tipos de estafetas.
+
+    public abstract class Estafeta {
+    protected List<String> encomendas;
+    protected List<String> notificacoes;
+
+    public abstract void atualizaClassificacao(double classificacao);
+
+    public void addEncomenda(String encCode) {
+        encomendas.add(encCode);
+    }
+
+    public boolean containsEncomenda(String encCode) {
+        return encomendas.contains(encCode);
+    }
+
+    public abstract void limpaNotificacoes();
+}
+
+public class Transporte extends Estafeta {
+    @Override
+    public void atualizaClassificacao(double classificacao) {
+        // Implementación específica para Transporte
+    }
+
+    @Override
+    public void limpaNotificacoes() {
+        // Implementación específica para Transporte
+    }
+}
+En este código, atualizaClassificacao() y limpaNotificacoes() 
+son métodos abstractos en la clase Estafeta, lo que significa que no 
+tienen una implementación en Estafeta y deben ser implementados en todas 
+las subclases de Estafeta. En la clase Transporte, estos métodos están vacíos, 
+lo que significa que no hacen nada cuando se llaman. Tendrías que rellenar estas 
+implementaciones con el código que sea apropiado para la clase Transporte.
+     */ 
 }
